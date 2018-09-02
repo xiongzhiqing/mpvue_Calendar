@@ -1,6 +1,7 @@
 # calendar_wx
 
 > A Mpvue project
+微信小程序 mpvue  业务场景 -- 日历
 
 ## Build Setup
 
