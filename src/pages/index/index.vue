@@ -17,7 +17,10 @@
 				<view class='date-head' :class="isToday > item.isToday ? 'date-cannot' : ''">
           <view>{{item.dateNum}}</view>
 				</view>
-				<view class='date-weight'>{{item.weight}}</view>
+				<view class='date-weight' v-if="item.dateNum">
+          <view v-if="item.weight">有号</view>
+          <view v-else>无号</view>
+        </view>
 			</view>
 		</view>
 	</view>
@@ -75,7 +78,7 @@ export default {
           obj = {
             isToday: new Date(year, month, num).getTime(),
             dateNum: num,
-            weight: num % 5 === 0 ? '有号' : '无号'
+            weight: num % 5 === 0 ? 1 : 0
           }
         } else {
           obj = {}
@@ -143,7 +146,7 @@ export default {
 	right: -100rpx;
 }
 .header{
-	padding: 20rpx;
+	padding: 10rpx 20rpx;
 	display: flex;
 }
 .header>view{
@@ -176,7 +179,7 @@ export default {
 	box-sizing: border-box;
 	text-align: center;
 	flex: 0 0 calc(100% / 7);
-	margin: 10rpx 0;
+	margin-bottom: 10rpx;
 }
 .date-head{
 	font-size: 30rpx;
@@ -190,7 +193,6 @@ export default {
 	text-align: center;
 	color: #fff;
 	background-color: #22A7F6;
-	margin: 0 auto;
 }
 .date-weight{
 	font-size: 22rpx;
